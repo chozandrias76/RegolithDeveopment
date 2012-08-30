@@ -14,7 +14,7 @@ public class RenderSquare : MonoBehaviour
 	int 		curVert = 0;
 	int 		curIndex = 0;
 	static int 	chunkDim = 20;
-	float 		noiseRes = 0.03f;
+	float 		noiseRes = 0.01f;
 	int 		planarSweep = 3;
 	int 		depthSweep = 3;
 	
