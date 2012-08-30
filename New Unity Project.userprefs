@@ -1,0 +1,18 @@
+﻿<Properties>
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\RenderSquare.cs">
+    <Files>
+      <File FileName="Assets\Scripts\triax_diffuse.shader" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\triax_diffuse_wrap.shader" Line="17" Column="1" />
+      <File FileName="Assets\Scripts\MCubes.cs" Line="384" Column="51" />
+      <File FileName="Assets\Scripts\RenderSquare.cs" Line="202" Column="1" />
+      <File FileName="Assets\Scripts\GeoTools.cs" Line="142" Column="2" />
+      <File FileName="Assets\Scripts\OctTree.cs" Line="3" Column="1" />
+      <File FileName="Assets\Standard Assets\Character Controllers\Sources\Scripts\FPSInputController.js" Line="17" Column="35" />
+    </Files>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+</Properties>
