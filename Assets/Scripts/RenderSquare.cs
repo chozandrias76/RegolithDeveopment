@@ -11,12 +11,12 @@ public class RenderSquare : MonoBehaviour
 {
 	static int 		MAX_VERTS = 65000;
 	static int 		MAX_TRIS = 666000;
-	int 			curVert = 0;
-	int 			curIndex = 0;
-	static int 		chunkDim = 20;
-	float 			noiseRes = 0.03f;
-	int 			planarSweep = 3;
-	int 			depthSweep = 3;
+	int 		curVert = 0;
+	int 		curIndex = 0;
+	static int 	chunkDim = 20;
+	float 		noiseRes = 0.03f;
+	int 		planarSweep = 3;
+	int 		depthSweep = 3;
 	
 	Vector3[] 	vertices = new Vector3[MAX_VERTS];//(chunkDim+1)*(chunkDim+1)];
 	Vector3[] 	normals = new Vector3[MAX_VERTS];//(chunkDim+1)*(chunkDim+1)];
@@ -224,7 +224,7 @@ public class RenderSquare : MonoBehaviour
 						// add/sub a sphere from the  density field
 						float d=rgn.data[cidx].density;
 						d=d+((1.0f-(dlt.magnitude/editRadius))*targDelta);	//Effect this element...
-						//if(dlt.y<0.2f)	//Comment this in to get flat top sphere drawing
+						//if(fabs(dlt.y)<0.2f)
 							rgn.data[cidx].density = dclamp(d);
 					}
 					cidx+=oz;
