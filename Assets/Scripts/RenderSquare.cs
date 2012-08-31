@@ -11,12 +11,12 @@ public class RenderSquare : MonoBehaviour
 {
 	static int 		MAX_VERTS = 65000;
 	static int 		MAX_TRIS = 666000;
-	int 		curVert = 0;
-	int 		curIndex = 0;
-	static int 	chunkDim = 20;
-	float 		noiseRes = 0.01f;
-	int 		planarSweep = 3;
-	int 		depthSweep = 3;
+	int 			curVert = 0;
+	int 			curIndex = 0;
+	static int 		chunkDim = 20;
+	float 			noiseRes = 0.03f;
+	int 			planarSweep = 3;
+	int 			depthSweep = 3;
 	
 	Vector3[] 	vertices = new Vector3[MAX_VERTS];//(chunkDim+1)*(chunkDim+1)];
 	Vector3[] 	normals = new Vector3[MAX_VERTS];//(chunkDim+1)*(chunkDim+1)];
@@ -34,6 +34,7 @@ public class RenderSquare : MonoBehaviour
 	struct GridVertex
 	{
 		public float 	density;
+		public int		material;
 		public Vector3	position;
 		public Vector3 	normal;
 	}
@@ -205,6 +206,8 @@ public class RenderSquare : MonoBehaviour
 		}
 	}
 	
+	float fabs(float f){return f<0.0f?-1.0f*f:f;}
+	
 	void modifyRegion(Region rgn,Vector3 origin,float editRadius,float targDelta){
 		int cbase=0;//ox+oy+oz;
 		//cbase*=2;
@@ -218,9 +221,11 @@ public class RenderSquare : MonoBehaviour
 					Vector3 pos=rgn.data[cidx].position+rgn.origin;
 					Vector3 dlt=pos-origin;
 					if(dlt.sqrMagnitude<er2){
+						// add/sub a sphere from the  density field
 						float d=rgn.data[cidx].density;
 						d=d+((1.0f-(dlt.magnitude/editRadius))*targDelta);	//Effect this element...
-						rgn.data[cidx].density=dclamp (d);
+						//if(dlt.y<0.2f)	//Comment this in to get flat top sphere drawing
+							rgn.data[cidx].density = dclamp(d);
 					}
 					cidx+=oz;
 				}
@@ -231,7 +236,7 @@ public class RenderSquare : MonoBehaviour
 	}
 
 	
-	void generateChunk (ref GridVertex[]	chunkVertices,ref Mesh mesh)
+	void generateMeshGeometry (ref GridVertex[]	chunkVertices,ref Mesh mesh)
 	{
 		curVert = 0;
 		curIndex = 0;
@@ -264,7 +269,6 @@ public class RenderSquare : MonoBehaviour
 		mesh.normals = v3subarray(ref normals,curVert);
 		mesh.triangles = vIntsubarray(ref indices,curIndex);
 		//mesh.RecalculateNormals ();
-		
 	}
 	/*
 	Mesh generateChunk2 (int x, int y, int z)
@@ -331,7 +335,7 @@ public class RenderSquare : MonoBehaviour
 	{
 		generateNormalField(ref chunkData);
 		Mesh mesh = new Mesh();
-		generateChunk(ref chunkData,ref mesh);
+		generateMeshGeometry(ref chunkData,ref mesh);
 		chunk.obj.GetComponent<MeshFilter> ().mesh=mesh;
 		chunk.obj.GetComponent<MeshCollider> ().sharedMesh = mesh;
 		//chunk.AddComponent(chunk.GetComponent<"Material">().);
@@ -406,8 +410,8 @@ public class RenderSquare : MonoBehaviour
 			loadedRegions.Remove(rg.key);
 			//if(rg.obj!=null)
 			{
-				MeshCollider 	mc=rg.obj.GetComponent<MeshCollider>();
-				MeshFilter 		mf=rg.obj.GetComponent<MeshFilter>();
+				//MeshCollider 	mc=rg.obj.GetComponent<MeshCollider>();
+				//MeshFilter 		mf=rg.obj.GetComponent<MeshFilter>();
 				//mc.sharedMesh = null;
 				//Destroy(mf.mesh);
 				//mf.mesh = null;
@@ -598,7 +602,10 @@ public class RenderSquare : MonoBehaviour
 
 	void Start ()
 	{
-		Debug.Log ("STARTE!!!!");
+		Debug.Log ("START.");
+		
+		Network.InitializeServer(64,665,true);
+
 		viewerObject = GameObject.Find("First Person Controller");
 
 		regionName=getRegionName(viewRX,viewRY,viewRZ);

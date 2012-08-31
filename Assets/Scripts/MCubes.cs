@@ -365,17 +365,19 @@ public class MCubes
 		int i2=0;
 		/* Find the vertices where the surface intersects the cube */
 		for (i=0; i<12; i++) {
+			int vi=remap[i]=mapTop++;
 			if ((edgeTable [cubeindex] & (1 << i)) != 0) {
-				remap [mapTop++] = i;
-				normals [vertBase + i] = new Vector3 ();
+				normals [vertBase + vi] = new Vector3 ();
 				int e1=edgeMap[i2];
 				int e2=edgeMap[i2+1];
-				vertlist [vertBase + i] = VLerp (ref grid, isolevel, e1,e2, ref	normals [vertBase + i]);
+				vertlist [vertBase + vi] = VLerp (ref grid, isolevel, e1,e2, ref normals [vertBase + vi]);
 			}
 			i2+=2;
 		}
 		
 		for (i=0; i<12; i++) {
+			//Store material values in the uv channels..
+			//Reflective.. 
 			uvs [vertBase + i] = new Vector2 (vertlist [vertBase + i].x * 0.1f, vertlist [vertBase + i].z * 0.1f);
 		}
 

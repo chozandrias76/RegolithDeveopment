@@ -5,7 +5,7 @@
 	<Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
 	<ProductVersion>10.0.20506</ProductVersion>
 	<SchemaVersion>2.0</SchemaVersion>
-	<ProjectGuid>{1BC7FD04-0058-50CA-AFB6-B393D9BC33FF}</ProjectGuid>
+	<ProjectGuid>{4CC2218F-338F-D8E2-DDEE-9DACE52E67C1}</ProjectGuid>
 	<OutputType>Library</OutputType>
 	<AppDesignerFolder>Properties</AppDesignerFolder>
 	<RootNamespace></RootNamespace>
@@ -37,64 +37,18 @@
     <Reference Include="System.XML" />
 	<Reference Include="System.Core" />
 	<Reference Include="UnityEngine">
-	  <HintPath>C:/Program Files (x86)/Unity/Editor/Data/Managed/UnityEngine.dll</HintPath>
+	  <HintPath>E:/Program Files (x86)/Unity/Editor/Data/Managed/UnityEngine.dll</HintPath>
 	</Reference>
 	<Reference Include="UnityEditor">
-	  <HintPath>C:/Program Files (x86)/Unity/Editor/Data/Managed/UnityEditor.dll</HintPath>
+	  <HintPath>E:/Program Files (x86)/Unity/Editor/Data/Managed/UnityEditor.dll</HintPath>
 	</Reference>
   </ItemGroup>
   <ItemGroup>
-     <Compile Include="Assets\Scripts\AdvancedMovement.cs" />
-     <Compile Include="Assets\Scripts\Character Classes\Base Classes\Attribute.cs" />
-     <Compile Include="Assets\Scripts\Character Classes\Base Classes\BaseCharacter.cs" />
-     <Compile Include="Assets\Scripts\Character Classes\Base Classes\BaseStat.cs" />
-     <Compile Include="Assets\Scripts\Character Classes\Base Classes\ModifiedStat.cs" />
-     <Compile Include="Assets\Scripts\Character Classes\Base Classes\Skill.cs" />
-     <Compile Include="Assets\Scripts\Character Classes\Base Classes\Vital.cs" />
-     <Compile Include="Assets\Scripts\Character Classes\PC.cs" />
-     <Compile Include="Assets\Scripts\Crafting\Alchemy.cs" />
-     <Compile Include="Assets\Scripts\Crafting\Blacksmithing.cs" />
-     <Compile Include="Assets\Scripts\Crafting\Brewing.cs" />
-     <Compile Include="Assets\Scripts\Crafting\Carpentry.cs" />
-     <Compile Include="Assets\Scripts\Crafting\Cooking.cs" />
-     <Compile Include="Assets\Scripts\Crafting\CraftingHandler.cs" />
-     <Compile Include="Assets\Scripts\Crafting\Dying.cs" />
-     <Compile Include="Assets\Scripts\Crafting\ElectronicsFabrication.cs" />
-     <Compile Include="Assets\Scripts\Crafting\Farming.cs" />
-     <Compile Include="Assets\Scripts\Crafting\Glassworking.cs" />
-     <Compile Include="Assets\Scripts\Crafting\Leatherworking.cs" />
-     <Compile Include="Assets\Scripts\Crafting\MetalForging.cs" />
-     <Compile Include="Assets\Scripts\Crafting\Refining.cs" />
-     <Compile Include="Assets\Scripts\Crafting\StoneMasonry.cs" />
-     <Compile Include="Assets\Scripts\Crafting\Tailoring.cs" />
-     <Compile Include="Assets\Scripts\Crafting\Whitesmithing.cs" />
-     <Compile Include="Assets\Scripts\Day Night Cycle\GameTime.cs" />
-     <Compile Include="Assets\Scripts\Day Night Cycle\Sun.cs" />
-     <Compile Include="Assets\Scripts\Day Night Cycle\TimedLighting.cs" />
-     <Compile Include="Assets\Scripts\GameSetting2.cs" />
      <Compile Include="Assets\Scripts\GeoTools.cs" />
-     <Compile Include="Assets\Scripts\Items\Armor.cs" />
-     <Compile Include="Assets\Scripts\Items\Base Classes\BuffItem.cs" />
-     <Compile Include="Assets\Scripts\Items\Base Classes\Item.cs" />
-     <Compile Include="Assets\Scripts\Items\Clothing.cs" />
-     <Compile Include="Assets\Scripts\Items\Consumable.cs" />
-     <Compile Include="Assets\Scripts\Items\ETool.cs" />
-     <Compile Include="Assets\Scripts\Items\ItemGenenerator.cs" />
-     <Compile Include="Assets\Scripts\Items\Jewelry.cs" />
-     <Compile Include="Assets\Scripts\Items\Weapon.cs" />
      <Compile Include="Assets\Scripts\MCubes.cs" />
      <Compile Include="Assets\Scripts\OctTree.cs" />
-     <Compile Include="Assets\Scripts\PlayerInput.cs" />
      <Compile Include="Assets\Scripts\RenderSquare.cs" />
      <Compile Include="Assets\Scripts\SimplexNoise.cs" />
-     <Compile Include="Assets\Scripts\Title\TitleGUI.cs" />
-     <Compile Include="Assets\Scripts\Title\TitleHandler.cs" />
-     <Compile Include="Assets\Scripts\UI\Main.cs" />
-     <Compile Include="Assets\Scripts\UI\VitalBar.cs" />
-     <Compile Include="Assets\Scripts\Utility\CSMessenger Extended\Callback.cs" />
-     <Compile Include="Assets\Scripts\Utility\CSMessenger Extended\Messenger.cs" />
-     <Compile Include="Assets\Scripts\Utility\DetectLeaks.cs" />
-     <Compile Include="Assets\Scripts\Utility\MeshOffset.cs" />
      <None Include="Assets\Standard Assets\Projectors\Guidelines.txt" />
      <None Include="Assets\Scripts\triax_diffuse_wrap.shader" />
      <None Include="Assets\Standard Assets (Mobile)\Shaders\Particle Shaders\Mobile Multiply Culled.shader" />
@@ -119,9 +73,9 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="Assembly-CSharp-firstpass.csproj">
-      <Project>{F80780BB-A3F7-69FF-0860-9E95807A4136}</Project>      <Name>Assembly-CSharp-firstpass</Name>    </ProjectReference>
+      <Project>{5E43628F-E7E0-7E41-ADFA-D925D316FDCB}</Project>      <Name>Assembly-CSharp-firstpass</Name>    </ProjectReference>
     <ProjectReference Include="Assembly-UnityScript-firstpass.unityproj">
-      <Project>{DB248C9D-CA17-0500-D5DA-506E70EF342C}</Project>      <Name>Assembly-UnityScript-firstpass</Name>    </ProjectReference>
+      <Project>{5909F850-BD00-B9A2-0638-66DD4F81A37D}</Project>      <Name>Assembly-UnityScript-firstpass</Name>    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
