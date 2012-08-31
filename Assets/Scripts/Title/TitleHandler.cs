@@ -5,8 +5,8 @@ public class MenuHandler : MonoBehaviour {
 	
 	public MenuGUI[] menuItems;
 	public int currentMenuItem;
-	float keyDelay = 0.1250f;
-	 RaycastHit hit=new RaycastHit();
+	//float keyDelay = 0.1250f;
+	 //RaycastHit hit=new RaycastHit();
 	// Use this for initialization
 	void Start () {
 		menuItems[currentMenuItem].OnSelected(true);

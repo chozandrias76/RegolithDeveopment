@@ -49,7 +49,7 @@ public class Main : MonoBehaviour {
 	private bool _displayLootWindow = false;			//toggle to control if the loot window should be displayed or not
 	private const int LOOT_WINDOW_ID = 0;				//the unique id of the loot window
 	private Rect _lootWindowRect = new Rect(0,0,0,0);	//the starting location of the loot window
-	private Vector2 _lootWindowSlider = Vector2.zero;	//the scrollview of the loot window
+	//private Vector2 _lootWindowSlider = Vector2.zero;	//the scrollview of the loot window
 	//public static Chest chest;							//the reference to the lootable object that we are currently using
 	#endregion
 	
@@ -123,7 +123,7 @@ public class Main : MonoBehaviour {
 	/// This function is called before the first Update is called. Use this function to set tings up before we start.
 	/// </summary>
 	void Start() {
-		//PC.Instance.Initialize();
+		PC.Instance.Initialize();
 //		_lootItems = new List<Item>();
 	}
 	
