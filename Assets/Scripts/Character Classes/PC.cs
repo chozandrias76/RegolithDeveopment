@@ -33,8 +33,8 @@ public class PC : BaseCharacter {
 				go.tag = "Player";
 			}
 			
-			//return instance;
-			return null;
+			return instance;
+			//return null;
 		}
 	}
 	
