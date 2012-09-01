@@ -38,8 +38,9 @@ public class Main : MonoBehaviour {
 	private float _offset = 10;							//the default offset that is going to be used when spacing gui elements
 
 	private string _toolTip = "";						//the tooltip to display
-
 	
+	
+
 	#region Loot Window Variables
 	/***************************************************
 	* Loot window variables
@@ -114,7 +115,28 @@ public class Main : MonoBehaviour {
 
 	#endregion
 
+	#region Editor Window Variables
+	/*******************************************************
+	* Editor window variables
+	* 
+	* These variables are only used fot the Editor window
+	*******************************************************/
+	public int _editorRows = 1;										//the number of rows of items in our Editor
+	public int _editorCols = 2;										//the number of columns in our Editor
+	private bool _displayEditorWindow = false;						//toggle the display of the Editor window.
+	private const int EDITOR_WINDOW_ID = 6;							//the unique id of the Editor window	
+	public float _editorLocX;
+	public float _editorLocY;
+	public float _editorScaleX;
+	public float _editorScaleY;
+	public float _editorHorzSliderValue = 2.0f;
+	public float _editorHorzSliderMin = 0.0f;
+	public float _editorHorzSliderMax = 10.0f;
+	public Rect _editorWindowRect;		//the starting location of the editor window
+	public Rect _editorWindow2Rect;		//the starting location of the player view editor window
+	public Rect _editorHorzSliderRect;
 
+	#endregion
 	
 
 	/// <summary>
@@ -126,9 +148,6 @@ public class Main : MonoBehaviour {
 		PC.Instance.Initialize();
 //		_lootItems = new List<Item>();
 	}
-	
-
-	
 	/// <summary>
 	/// Raises the enable event.
 	/// 
@@ -140,6 +159,7 @@ public class Main : MonoBehaviour {
 		Messenger.AddListener("ToggleInventory", ToggleInventoryWindow);			//display the inventory
 		Messenger.AddListener("ToggleCharacterWindow", ToggleCharacterWindow);		//display the character window
 		Messenger.AddListener("CloseChest", ClearWindow);							//close the loot window.
+		//Messenger.AddListener("ToggleEditor", ToggleEditor);
 	}
 	
 	
@@ -155,6 +175,7 @@ public class Main : MonoBehaviour {
 		Messenger.RemoveListener("ToggleInventory", ToggleInventoryWindow);			//display the inventory window
 		Messenger.RemoveListener("ToggleCharacterWindow", ToggleCharacterWindow);	//display the character window
 		Messenger.RemoveListener("CloseChest", ClearWindow);						//close the loot window
+		//Messenger.RemoveListener("ToggleEditor", ToggleEditor);
 	}
 
 	
@@ -197,10 +218,20 @@ public class Main : MonoBehaviour {
 		//dispplay the loot window if we are set to.
 		if(_displayLootWindow)
 			_lootWindowRect = GUI.Window(LOOT_WINDOW_ID, new Rect(_offset, Screen.height - (_offset + lootWindowHeight), Screen.width - (_offset * 2), lootWindowHeight), LootWindow, "Loot Window", "box");
-
+		
+		if(_displayEditorWindow){
+			_editorLocX = (Screen.width/2 - (_editorCols*buttonWidth)/2);
+			_editorLocY = (Screen.height/2-(_editorRows*buttonHeight)/2);
+			_editorScaleX = (_editorCols*buttonWidth);
+			_editorScaleY = (_editorRows*buttonHeight);
+			_editorWindowRect = new Rect(_editorLocX, _editorLocY, _editorScaleX, _editorScaleY);
+			_editorWindowRect = GUI.Window(EDITOR_WINDOW_ID, _editorWindowRect, EditWindow, "Editor");
+		}
 		//display the tooltip that we have
 		DisplayToolTip();	
 		}
+	
+	
 
 	
 	
@@ -499,6 +530,18 @@ public class Main : MonoBehaviour {
 	{
 	}
 	
+	public void EditWindow(int id)
+	{
+		for(int y = 0; y < _editorRows; y++) {
+			for(int x = 0; x < _editorCols; x++) {
+				
+			}
+		}
+	}
+	
+	public void ToggleEditorWindow(){
+		_displayEditorWindow = !_displayEditorWindow;
+	}
 	
 	public void ToggleInventoryWindow() {
 		_displayInventoryWindow = !_displayInventoryWindow;
