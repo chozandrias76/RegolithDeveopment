@@ -13,6 +13,7 @@ public class MCubes
 	{
 		public Vector3[] p = new Vector3[8];
 		public Vector3[] n = new Vector3[8];
+		public Vector2[] t = new Vector2[8];
 		public double[] val = new double[8];
 	};
 	static int[] edgeTable = {//[256]={
@@ -367,19 +368,19 @@ public class MCubes
 		for (i=0; i<12; i++) {
 			int vi=remap[i]=mapTop++;
 			if ((edgeTable [cubeindex] & (1 << i)) != 0) {
-				normals [vertBase + vi] = new Vector3 ();
+				//normals [vertBase + vi] = new Vector3 ();
 				int e1=edgeMap[i2];
 				int e2=edgeMap[i2+1];
-				vertlist [vertBase + vi] = VLerp (ref grid, isolevel, e1,e2, ref normals [vertBase + vi]);
+				vertlist [vertBase + vi] = VLerp (ref grid, isolevel, e1,e2, ref normals [vertBase + vi],ref uvs[vertBase+vi]);
 			}
 			i2+=2;
 		}
 		
-		for (i=0; i<12; i++) {
+//		for (i=0; i<12; i++) {
 			//Store material values in the uv channels..
 			//Reflective.. 
-			uvs [vertBase + i] = new Vector2 (vertlist [vertBase + i].x * 0.1f, vertlist [vertBase + i].z * 0.1f);
-		}
+//			uvs [vertBase + i] = new Vector2 (vertlist [vertBase + i].x * 0.1f, vertlist [vertBase + i].z * 0.1f);
+//		}
 
 		/* Create the triangle */
 		for (i=0; triTable[cubeindex,i]!=-1; i+=3) {
@@ -449,7 +450,7 @@ public class MCubes
 				normals [vertBase + i] = new Vector3 ();
 				int e1=edgeMap[i2];
 				int e2=edgeMap[i2+1];
-				vertlist [vertBase + i] = VLerp (ref grid, isolevel, e1,e2, ref	normals [vertBase + i]);
+				vertlist [vertBase + i] = VLerp (ref grid, isolevel, e1,e2, ref	normals [vertBase + i],ref uvs[vertBase+i]);
 			}
 			i2+=2;
 		 }
@@ -530,9 +531,9 @@ public class MCubes
 	    }
 	    */
 		
-		for (i=0; i<12; i++) {
-			uvs [vertBase + i] = new Vector2 (vertlist [vertBase + i].x * 0.1f, vertlist [vertBase + i].z * 0.1f);
-		}
+		//for (i=0; i<12; i++) {
+		//	uvs [vertBase + i] = new Vector2 (vertlist [vertBase + i].x * 0.1f, vertlist [vertBase + i].z * 0.1f);//
+		//}
 
 		/* Create the triangle */
 		for (i=0; triTable[cubeindex,i]!=-1; i+=3) {
@@ -575,12 +576,14 @@ public class MCubes
 	*/
 	static Vector3 VLerp (ref GRIDCELL curCell, double isolevel,
 						int ia,int ib,
-						ref Vector3 normal)
+						ref Vector3 normal,ref Vector2 tex)
 	{
 		Vector3 p1=curCell.p[ia];
 		Vector3 p2=curCell.p[ib];
 		Vector3 n1=curCell.n[ia];
 		Vector3 n2=curCell.n[ib];
+		Vector2 t1=curCell.t[ia];
+		Vector2 t2=curCell.t[ib];
 		double valp1=curCell.val[ia];
 		double valp2=curCell.val[ib]; 
 		
@@ -589,18 +592,22 @@ public class MCubes
 		if (Math.Abs (isolevel - valp1) < 0.00001)
 		{	p=p1;
 			normal=n1;
+			tex=t1;
 		}else
 		if (Math.Abs (isolevel - valp2) < 0.00001)
 		{	p=p2;
 			normal=n2;
+			tex=t2;
 		}else
 		if (Math.Abs (valp1 - valp2) < 0.00001)
 		{	p=p1;
 			normal=n1;
+			tex=t1;
 		}else{
 			mu = (float)((isolevel - valp1) / (valp2 - valp1));
 			p=p1+mu*(p2-p1);
 			normal=n1+mu*(n2-n1);
+			tex=t1+mu*(t2-t1);
 		}
 		normal.Normalize ();
 		return(p);

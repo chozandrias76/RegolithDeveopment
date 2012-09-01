@@ -43,11 +43,15 @@
       
       void surf (Input IN, inout SurfaceOutput o) {
 	      float3 wpscl=IN.worldPos.xyz*0.25;
-
-          if(fmod(IN.uv_XTex.x,1.0)>0.5)
-	      	o.Albedo  = triplanarMap(_XTex,_YTex,_ZTex,wpscl,o);
-          else
-          	o.Albedo = triplanarMap(_X1Tex,_Y1Tex,_Z1Tex,wpscl,o);
+		  float matsel=fmod(IN.uv_XTex.x,1.0);
+         
+	      o.Albedo = (triplanarMap(_XTex,_YTex,_ZTex,wpscl,o)*matsel)+
+          // if(matsel<0.5)
+           (triplanarMap(_X1Tex,_Y1Tex,_Z1Tex,wpscl,o)*(1.0-matsel));
+         // else if(matsel<0.75)
+         // 	o.Albedo = triplanarMap(_Z1Tex,_Y1Tex,_X1Tex,wpscl,o);
+          //else
+          //	o.Albedo = triplanarMap(_YTex,_YTex,_XTex,wpscl,o);
           
           //if(fmod(IN.uv_XTex.x,1.0)>0.5)
           //{
