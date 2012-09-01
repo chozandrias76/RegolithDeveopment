@@ -18,7 +18,7 @@ public class PC : BaseCharacter {
 			if ( instance == null ) {
 //				Debug.Log( "***PC - Instance***" );
 				GameObject go = Instantiate( Resources.Load(
-				                             GameSetting2.MALE_MODEL_PATH + GameSetting2.maleModels[ GameSetting2.LoadCharacterModelIndex() ] ),
+				                             GameSetting2.MALE_MODEL_PATH + "FEMALE01"),
 				                           	 GameSetting2.LoadPlayerPosition(),
 				                             Quaternion.identity ) as GameObject;
 				

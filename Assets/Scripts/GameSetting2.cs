@@ -31,7 +31,7 @@ public static class GameSetting2 {
 	#endregion
 	
 	#region Resource Paths
-	public const string MALE_MODEL_PATH = "Character/Model/Prefab/Human/Male/";
+	public const string MALE_MODEL_PATH = "Character/Meshes/Male/";
 	public const string FEMALE_MODEL_PATH = "Character/Meshes/Female/";
 
 	public const string HEAD_TEXTURE_PATH = "Character/Faces/Human/Male/Textures/";
@@ -39,8 +39,8 @@ public static class GameSetting2 {
 	public const string MELEE_WEAPON_ICON_PATH = "Item/Icon/Weapon/Melee/";
 	public const string MELEE_WEAPON_MESH_PATH = "Item/Mesh/Weapon/Melee/";
 	
-	public const string MELEE_ETOOL_ICON_PATH = "Item/Icon/Weapon/ETool/";
-	public const string MELEE_ETOOL_MESH_PATH = "Item/Mesh/Weapon/ETool/";
+	public const string MELEE_ETOOL_ICON_PATH = "Item/Icon/ETool/";
+	public const string MELEE_ETOOL_MESH_PATH = "Item/Mesh/ETool/";
 
 	public const string SHIELD_ICON_PATH = "Item/Icon/Armor/Shields/";
 	public const string SHIELD_MESH_PATH = "Item/Mesh/Armor/Shields/";
@@ -53,7 +53,7 @@ public static class GameSetting2 {
 		
 	#endregion
 	
-	public static Vector3 startingPos = new Vector3( 522, 56, 1114 );
+	public static Vector3 startingPos = new Vector3( 0, 0, 0 );
 	
 	public static string[] maleModels = { "fat", "muscular" };
 
