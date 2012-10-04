@@ -1,0 +1,29 @@
+﻿<Properties>
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\Engine\PlayerScript.cs">
+    <Files>
+      <File FileName="Assets\Scripts\Rendering\Flag.shader" Line="88" Column="1" />
+      <File FileName="Assets\Scripts\Rendering\Thrax-Water.shader" Line="92" Column="4" />
+      <File FileName="Assets\Scripts\Engine\World.cs" Line="221" Column="42" />
+      <File FileName="Assets\Scripts\Engine\BuildCursor.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\Engine\PangoWorld.cs" Line="114" Column="26" />
+      <File FileName="Assets\Scripts\Engine\Unit.cs" Line="62" Column="96" />
+      <File FileName="Assets\Scripts\Engine\MusicConductor.cs" Line="30" Column="28" />
+      <File FileName="Assets\Scripts\Engine\Projectile.cs" Line="11" Column="21" />
+      <File FileName="Assets\Scripts\Engine\PlayerManager.cs" Line="28" Column="63" />
+      <File FileName="Assets\Scripts\Engine\PlayerScript.cs" Line="44" Column="1" />
+      <File FileName="Assets\Scripts\Engine\BuildManager.cs" Line="170" Column="28" />
+      <File FileName="Assets\Scripts\UI\RotateLogo.cs" Line="18" Column="23" />
+      <File FileName="Assets\Scripts\Engine\Grenade.cs" Line="49" Column="18" />
+      <File FileName="Assets\Scripts\Engine\Player.cs" Line="74" Column="4" />
+      <File FileName="Assets\Standard Assets\Character Controllers\Sources\Scripts\CharacterMotor.js" Line="494" Column="49" />
+      <File FileName="Assets\Scripts\Rendering\triax_diffuse.shader" Line="1" Column="1" />
+    </Files>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore>
+      <Breakpoint file="E:\Unity\Pangolin\Assets\Scripts\Engine\World.cs" line="74" />
+    </BreakpointStore>
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+</Properties>
